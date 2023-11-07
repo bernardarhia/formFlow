@@ -31,7 +31,7 @@ interface SelectFieldProps extends FormFieldProps {
 }
 export type SpecificFormFieldProps = InputFieldProps | SelectFieldProps;
 type ColValues = {
-  [K in `col-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12}`]: K;
+  [K in `cols-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12}`]: K;
 };
 
 export interface FormSectionProps {

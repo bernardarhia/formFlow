@@ -45,36 +45,32 @@ const FormBuilder: FC<FormBuilderProps> = ({
       dispatch({ type: "RESET_FORM" });
     }
   }, [resetForm]);
-  return (
-    <>
-      {schema.map((formBuilderSchema, index: number) => {
-        return (
-          <div className={`${formBuilderSchema.className}`} key={index}>
-            {formBuilderSchema.title && <h1>{formBuilderSchema.title}</h1>}
-
-            {formBuilderSchema.description && (
-              <p>{formBuilderSchema.description}</p>
-            )}
-
-            {formBuilderSchema.section.form.map(
-              (formData: SpecificFormFieldProps, _i) => {
-                return (
-                  <div key={_i}>
-                    <FormFieldsComponent
-                      handleBlur={handleBlur}
-                      handleChange={handleChange}
-                      state={state}
-                      props={formData}
-                    />
-                  </div>
-                );
-              }
-            )}
-          </div>
-        );
-      })}
-    </>
-  );
+  return schema.map((formBuilderSchema, index: number) => {
+    return (
+      <div key={index}>
+      <h1>Something came h</h1>
+        <p>{formBuilderSchema.description}</p>
+        <div
+          className={`grid ${formBuilderSchema.className} grid-${formBuilderSchema.section.col}`}
+        >
+          {formBuilderSchema.section.form.map(
+            (formData: SpecificFormFieldProps, _i) => {
+              return (
+                <div key={_i}>
+                  <FormFieldsComponent
+                    handleBlur={handleBlur}
+                    handleChange={handleChange}
+                    state={state}
+                    props={formData}
+                  />
+                </div>
+              );
+            }
+          )}
+        </div>
+      </div>
+    );
+  });
 };
 
 export default memo(FormBuilder);
