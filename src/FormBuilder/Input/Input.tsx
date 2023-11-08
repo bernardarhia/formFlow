@@ -15,7 +15,7 @@ const Input: FC<FormFieldComponentProps> = ({
       value={state[props.fieldKey]}
       onChange={handleChange}
       onBlur={handleBlur}
-      className={`w-full border p-2 rounded-sm ${props.className}`}
+      className={`w-full border p-2 rounded-sm focus-within:outline-none focus:outline-none focus-visible:outline-none text-base ${props.className}`}
     />
   );
 };

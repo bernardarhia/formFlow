@@ -31,7 +31,7 @@ interface SelectFieldProps extends FormFieldProps {
 }
 export type SpecificFormFieldProps = InputFieldProps | SelectFieldProps;
 type ColValues = {
-  [K in `cols-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12}`]: K;
+  [K in `grid-cols-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12}`]: K;
 };
 
 export interface FormSectionProps {
@@ -44,9 +44,7 @@ export interface FormSectionProps {
 
 export interface FormSchemaProps {
   section: FormSectionProps;
-  className?: string;
   title?: string;
-  description?: string;
 }
 export type FormBuilderState = Record<string, any>;
 export type FormBuilderAction =

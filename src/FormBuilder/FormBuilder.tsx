@@ -48,10 +48,14 @@ const FormBuilder: FC<FormBuilderProps> = ({
   return schema.map((formBuilderSchema, index: number) => {
     return (
       <div key={index}>
-      <h1>Something came h</h1>
-        <p>{formBuilderSchema.description}</p>
+        {formBuilderSchema.section.title && (
+          <h1 className="text-xl font-medium my-2">{formBuilderSchema.section.title}</h1>
+        )}
+        {formBuilderSchema.section.description && (
+          <p className="text-sm">{formBuilderSchema.section.description}</p>
+        )}
         <div
-          className={`grid ${formBuilderSchema.className} grid-${formBuilderSchema.section.col}`}
+          className={`grid grid-cols-1 lg:grid-${formBuilderSchema.section.col} md:grid-cols-1 ${formBuilderSchema.section.className}`}
         >
           {formBuilderSchema.section.form.map(
             (formData: SpecificFormFieldProps, _i) => {

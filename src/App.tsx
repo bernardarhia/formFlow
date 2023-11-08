@@ -1,6 +1,7 @@
 import FormBuilder from "@/FormBuilder/FormBuilder";
 import "@/index.css";
 import { FormSchemaProps } from "./interface/FormBuilder";
+import Select from "./FormBuilder/Select/Select";
 function App() {
   const fieldValues = {
     username: "",
@@ -9,7 +10,7 @@ function App() {
   const schema: FormSchemaProps[] = [
     {
       section: {
-        col: "cols-4",
+        col: "grid-cols-4",
         form: [
           {
             fieldKey: "username",
@@ -20,9 +21,9 @@ function App() {
             type: "text",
           },
         ],
-        title: "A very nice Form",
+        title: "User",
         description: "A very cool form",
-        className: "gap-4"
+        className: "gap-4",
       },
     },
   ];
@@ -32,16 +33,23 @@ function App() {
   const handleInputBlur = (data: any) => {
     console.log({ data }, "BLUR");
   };
-
+  const options = [
+    { label: 'Option 1', value: '1' },
+    { label: 'Option 2', value: '2' },
+    { label: 'Option 3', value: '3' },
+    // Add more options as needed
+  ];
   return (
     <>
-      <h1>Hello world</h1>
-      <FormBuilder
+    <div className="m-5">
+      <Select options={options} isSearchable/>
+    </div>
+      {/* <FormBuilder
         schema={schema}
         defaultValues={fieldValues}
         onFieldChangeHandler={handleInputChange}
         onFieldBlurHandler={handleInputBlur}
-      />
+      /> */}
     </>
   );
 }
